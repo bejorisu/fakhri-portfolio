@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Developer | Automation Specialist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">Dev.ID</div>
+        <div class="nav-right">
+            <button id="theme-toggle" title="Toggle Theme">🌙</button>
+            <a href="#work">Projects</a>
+            <a href="mailto:hello@yourname.dev" class="btn-primary">Get in Touch</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <span class="badge">Based in Indonesia • Remote Worldwide</span>
+        <h1>Scaling data with <span class="text-gradient">Stealth Automation</span>.</h1>
+        <p>I build resilient, undetected web scrapers and high-performance applications for the global market.</p>
+    </header>
+
+    <main id="work">
+        <div class="section-header">
+            <h2>Selected Projects</h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="project-grid">
+            <article class="card">
+                <div class="card-header">
+                    <span class="tag">Python</span>
+                    <span class="tag">Playwright</span>
+                    <span class="tag">Pandas</span>
+                </div>
+                <h3>Infinite-Crawl Intelligence</h3>
+                <p>A high-stealth lead generation engine designed to bypass modern anti-bot detections while navigating complex paginated directories.</p>
+                
+                <ul class="tech-specs">
+                    <li><strong>Detection Bypass:</strong> Integrated <code>playwright-stealth</code> for fingerprint masking.</li>
+                    <li><strong>Human Behavior:</strong> Mimics users with jittered delays and mouse-wheel emulation.</li>
+                    <li><strong>Data Resilience:</strong> Atomic page-by-page flushing to CSV using Pandas.</li>
+                </ul>
+
+                <div class="card-footer">
+                    <a href="https://github.com/bejorisu" class="view-link">View GitHub →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="contact-section">
+        <div class="line"></div>
+        <div class="footer-content">
+            <div class="footer-text">
+                <h4>Available for global opportunities</h4>
+                <p>Currently specializing in bypassing sophisticated automation barriers.</p>
+            </div>
+            <div class="footer-action">
+                <div class="email-wrapper">
+                    <span id="copy-success">Copied!</span>
+                    <button id="copy-email-btn" class="email-link">hello@yourname.dev</button>
+                </div>
+                <div class="socials">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2024 Built with Playwright & Passion.</p>
+    </footer>
+
+    <script>
+        const themeBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Function to set theme
+        const setTheme = (theme) => {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                themeBtn.innerText = '☀️';
+            } else {
+                body.classList.remove('dark-mode');
+                themeBtn.innerText = '🌙';
+            }
+            localStorage.setItem('theme', theme);
+        };
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        themeBtn.addEventListener('click', () => {
+            const currentTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(currentTheme);
+        });
+
+        // Copy Email Logic
+        const copyBtn = document.getElementById('copy-email-btn');
+        const successMsg = document.getElementById('copy-success');
+
+        copyBtn.addEventListener('click', () => {
+            const email = copyBtn.innerText;
+            navigator.clipboard.writeText(email).then(() => {
+                successMsg.style.opacity = '1';
+                setTimeout(() => { successMsg.style.opacity = '0'; }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
